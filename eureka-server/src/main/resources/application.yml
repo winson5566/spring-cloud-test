@@ -2,52 +2,77 @@
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
   profiles:
-    active: dev
+    active: dev0
   application:
-    name: eureka-server-1
-#服务注册中心端口号
-server:
-  port: 8880
-#Eureka注册中心设置
+    name: eureka-server
 eureka:
   client:
     #是否向服务注册中心注册自己
-    register-with-eureka: false
+    register-with-eureka: true
     #是否检索服务
     fetch-registry: false
-    #服务注册中心的配置内容，指定服务注册中心的位置
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: 192.168.61.137
 logging:
   level:
     com:
       netflix:
         eureka: OFF
         discovery: OFF
+  file: /home/winson/logs/${spring.application.name}.log
+
+
 ---
-# 开发环境配置
+# 开发环境配置(单机服务中心)
 spring:
-  profiles: dev
+  profiles: dev0
+#服务注册中心端口号
+server:
+  port: 8800
 eureka:
-  instance:
-    #服务注册中心实例的主机名
-    hostname: 192.168.61.137
+  client:
+    #服务注册中心的配置内容，指定服务注册中心的位置(如果需要使用多注册中心，这里需要配置)
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 #日志地址
 logging:
   file: /home/winson/logs/${spring.application.name}.log
+
+
+---
+# 开发环境配置（双服务中心1）
+spring:
+  profiles: dev1
+#服务注册中心端口号
+server:
+  port: 8801
+eureka:
+  client:
+    #服务注册中心的配置内容，指定服务注册中心的位置(与其他注册中心互相注册)
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8802/eureka/
+
+
+---
+# 开发环境配置（双服务中心2）
+spring:
+  profiles: dev2
+#服务注册中心端口号
+server:
+  port: 8802
+eureka:
+    #服务注册中心的配置内容，指定服务注册中心的位置(与其他注册中心互相注册)
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8801/eureka/
+
+
+
 
 ---
 # 测试环境配置
 spring:
   profiles: test
-eureka:
-  instance:
-    #服务注册中心实例的主机名
-    hostname: 192.168.61.201
-#日志地址
-logging:
-  file: /home/test/logs/${spring.application.name}.log
-
 ---
 # 正式环境配置
 spring:

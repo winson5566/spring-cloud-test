@@ -1,6 +1,8 @@
+group 'tech.winson'
+version '1.0-SNAPSHOT'
 buildscript {
     ext {
-        springBootVersion = '2.0.0.RELEASE'
+        springBootVersion = '2.0.1.RELEASE'
     }
     repositories {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
@@ -18,12 +20,12 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-    baseName = 'eureka-service'
+    baseName = 'provider'
     version = '1.2'
 }
 
 bootJar {
-    baseName = 'eureka-service'
+    baseName = 'provider'
     version = '1.2'
 }
 sourceCompatibility = 1.8
@@ -36,7 +38,7 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M9'
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.RC1'
     }
 }
 
@@ -48,8 +50,10 @@ repositories {
 }
 
 dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
     //    Spring Cloud
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.4.RELEASE'
     //    Spring Boot
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
@@ -59,19 +63,4 @@ dependencies {
     compile group: 'javax.activation', name: 'activation', version: '1.1.1'
 
 }
-group 'tech.winson'
-version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'war'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}

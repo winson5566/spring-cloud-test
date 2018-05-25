@@ -1,5 +1,5 @@
 rootProject.name = 'spring-cloud-test'
 include 'eureka-server'
-include 'eureka-client'
-include 'common'
+include 'consumer'
+include 'provider'
 

@@ -1,0 +1,65 @@
+group 'tech.winson'
+version '1.0-SNAPSHOT'
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'provider'
+    version = '1.2'
+}
+
+bootJar {
+    baseName = 'provider'
+    version = '1.2'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M9'
+    }
+}
+
+repositories {
+    maven {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        url 'https://repo.spring.io/libs-milestone'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //    Spring Cloud
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+    //    Spring Boot
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    //    Java9删除的jar包
+    compile 'javax.xml.bind:jaxb-api:2.2.7'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.7'
+    compile group: 'javax.activation', name: 'activation', version: '1.1.1'
+
+}
+
