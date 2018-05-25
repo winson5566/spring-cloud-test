@@ -1,0 +1,55 @@
+#默认使用dev配置
+#java -jar xxx.jar --spring.profiles.active=prod
+spring:
+  profiles:
+    active: dev
+  application:
+    name: eureka-server-1
+#服务注册中心端口号
+server:
+  port: 8880
+#Eureka注册中心设置
+eureka:
+  client:
+    #是否向服务注册中心注册自己
+    register-with-eureka: false
+    #是否检索服务
+    fetch-registry: false
+    #服务注册中心的配置内容，指定服务注册中心的位置
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+---
+# 开发环境配置
+spring:
+  profiles: dev
+eureka:
+  instance:
+    #服务注册中心实例的主机名
+    hostname: 192.168.61.137
+#日志地址
+logging:
+  file: /home/winson/logs/${spring.application.name}.log
+
+---
+# 测试环境配置
+spring:
+  profiles: test
+eureka:
+  instance:
+    #服务注册中心实例的主机名
+    hostname: 192.168.61.201
+#日志地址
+logging:
+  file: /home/test/logs/${spring.application.name}.log
+
+---
+# 正式环境配置
+spring:
+  profiles: prod
+
