@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import tech.winson.eureka.Feign.HelloService;
+import tech.winson.eureka.service.HelloFeignService;
+import tech.winson.eureka.service.HelloRibbonService;
 
 /**
  * 消费者测试接口
@@ -15,11 +15,18 @@ import tech.winson.eureka.Feign.HelloService;
 public class HelloController {
 
     @Autowired
-    HelloService helloService;
+    HelloFeignService helloFeignService;
+
+    @Autowired
+    HelloRibbonService helloRibbonService;
 
     @RequestMapping("/hello")
     @ResponseBody
-    public String hello(String name) {
-        return helloService.hello(name);
+    public String helloFeign(String name) {
+        StringBuffer stringBuffer=new StringBuffer();
+        stringBuffer.append("[Feign]").append(helloFeignService.hello(name));
+        stringBuffer.append("[Ribbon]").append(helloRibbonService.hello(name));
+        return stringBuffer.toString();
     }
+
 }
