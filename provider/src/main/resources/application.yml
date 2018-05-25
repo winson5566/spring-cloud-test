@@ -2,64 +2,22 @@
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
   profiles:
-    active: dev0
+    active: dev
   application:
     name: provider
 logging:
+  file: /home/winson/logs/${spring.application.name}.log
   level:
     com:
       netflix:
         eureka: OFF
         discovery: OFF
----
-# 开发环境配置(单服务中心模式)
-spring:
-  profiles: dev0
-#服务注册中心端口号
 server:
   port: 8810
-#Eureka注册中心设置
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.61.137:8800/eureka/
-#日志地址
-logging:
-  file: /home/winson/logs/${spring.application.name}.log
-
-
----
-# 开发环境配置（双服务中心模式）
-spring:
-  profiles: dev1
-#服务注册中心端口号
-server:
-  port: 8811
-#Eureka注册中心设置
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.61.137:8801/eureka/,http://192.168.61.137:8802/eureka/
-#日志地址
-logging:
-  file: /home/winson/logs/${spring.application.name}.log
-
----
-# 开发环境配置（双服务中心模式）
-spring:
-  profiles: dev2
-#服务注册中心端口号
-server:
-  port: 8812
-#Eureka注册中心设置
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.61.137:8801/eureka/,http://192.168.61.137:8802/eureka/
-#日志地址
-logging:
-  file: /home/winson/logs/${spring.application.name}.log
-
+      defaultZone: http://192.168.61.137:8800/eureka/,http://192.168.61.137:8801/eureka/,http://192.168.61.137:8802/eureka/
 ---
 # 测试环境配置
 spring:

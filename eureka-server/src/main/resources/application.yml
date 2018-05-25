@@ -7,9 +7,7 @@ spring:
     name: eureka-server
 eureka:
   client:
-    #是否向服务注册中心注册自己
     register-with-eureka: true
-    #是否检索服务
     fetch-registry: false
   instance:
     hostname: 192.168.61.137
@@ -20,30 +18,22 @@ logging:
         eureka: OFF
         discovery: OFF
   file: /home/winson/logs/${spring.application.name}.log
-
-
 ---
-# 开发环境配置(单机服务中心)
+# 开发环境配置（单服务中心）
 spring:
   profiles: dev0
-#服务注册中心端口号
 server:
   port: 8800
 eureka:
   client:
-    #服务注册中心的配置内容，指定服务注册中心的位置(如果需要使用多注册中心，这里需要配置)
+    #服务注册中心的配置内容，指定服务注册中心的位置(与其他注册中心互相注册)
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-#日志地址
-logging:
-  file: /home/winson/logs/${spring.application.name}.log
-
+      defaultZone: http://${eureka.instance.hostname}:8800/eureka/
 
 ---
 # 开发环境配置（双服务中心1）
 spring:
   profiles: dev1
-#服务注册中心端口号
 server:
   port: 8801
 eureka:
@@ -51,13 +41,10 @@ eureka:
     #服务注册中心的配置内容，指定服务注册中心的位置(与其他注册中心互相注册)
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8802/eureka/
-
-
 ---
 # 开发环境配置（双服务中心2）
 spring:
   profiles: dev2
-#服务注册中心端口号
 server:
   port: 8802
 eureka:
@@ -65,9 +52,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8801/eureka/
-
-
-
 
 ---
 # 测试环境配置
