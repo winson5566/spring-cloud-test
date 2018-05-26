@@ -1,0 +1,24 @@
+#默认使用dev配置
+#java -jar xxx.jar --spring.profiles.active=prod
+spring:
+  application:
+    name: config-server
+server:
+  port: 8830
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/winson5566/spring-cloud-test
+          searchPaths: respo
+      label: master
+---
+# 测试环境配置
+spring:
+  profiles: test
+---
+# 正式环境配置
+spring:
+  profiles: prod
+
