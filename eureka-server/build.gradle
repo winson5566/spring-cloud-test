@@ -29,10 +29,6 @@ bootJar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-}
-
 
 dependencyManagement {
     imports {
@@ -48,13 +44,10 @@ repositories {
 }
 
 dependencies {
-    //    Spring Cloud
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
-    //    Spring Boot
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'org.springframework.boot', name: 'spring-boot-actuator'
-    //    Java9删除的jar包
     compile 'javax.xml.bind:jaxb-api:2.2.7'
     compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.7'
     compile group: 'javax.activation', name: 'activation', version: '1.1.1'

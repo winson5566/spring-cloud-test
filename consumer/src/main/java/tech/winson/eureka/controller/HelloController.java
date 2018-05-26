@@ -20,11 +20,18 @@ public class HelloController {
     @Autowired
     HelloRibbonService helloRibbonService;
 
-    @RequestMapping("/hello")
+    @RequestMapping("/helloFeign")
     @ResponseBody
     public String helloFeign(String name) {
         StringBuffer stringBuffer=new StringBuffer();
         stringBuffer.append("[Feign]").append(helloFeignService.hello(name));
+        return stringBuffer.toString();
+    }
+
+    @RequestMapping("/helloRibbon")
+    @ResponseBody
+    public String helloRibbon(String name) {
+        StringBuffer stringBuffer=new StringBuffer();
         stringBuffer.append("[Ribbon]").append(helloRibbonService.hello(name));
         return stringBuffer.toString();
     }

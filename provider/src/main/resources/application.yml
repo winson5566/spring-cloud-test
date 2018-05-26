@@ -6,7 +6,7 @@ spring:
   application:
     name: provider
 logging:
-  file: /home/winson/logs/${spring.application.name}.log
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
   level:
     com:
       netflix:
@@ -17,7 +17,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.61.137:8800/eureka/,http://192.168.61.137:8801/eureka/,http://192.168.61.137:8802/eureka/
+      defaultZone: http://127.0.0.1:8800/eureka/,http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
 ---
 # 测试环境配置
 spring:

@@ -1,8 +1,6 @@
 #默认使用dev配置
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
-  profiles:
-    active: dev0
   application:
     name: eureka-server
 eureka:
@@ -10,14 +8,14 @@ eureka:
     register-with-eureka: true
     fetch-registry: false
   instance:
-    hostname: 192.168.61.137
+    hostname: 127.0.0.1
 logging:
   level:
     com:
       netflix:
         eureka: OFF
         discovery: OFF
-  file: /home/winson/logs/${spring.application.name}.log
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
 ---
 # 开发环境配置（单服务中心）
 spring:
