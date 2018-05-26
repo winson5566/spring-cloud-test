@@ -11,7 +11,7 @@ spring:
       server:
         git:
           uri: https://github.com/winson5566/spring-cloud-test
-          searchPaths: respo
+          searchPaths: config-respo
       label: master
 ---
 # 测试环境配置
