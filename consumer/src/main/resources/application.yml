@@ -17,6 +17,15 @@ logging:
 feign:
   hystrix:
     enabled: true
+#zuul配置
+zuul:
+  routes:
+    provider:
+      path: /provider/**
+      serviceId: provider
+    provider-spare:
+      path: /provider-spare/**
+      serviceId: provider-spare
 ---
 # 开发环境配置(单服务中心模式)
 spring:

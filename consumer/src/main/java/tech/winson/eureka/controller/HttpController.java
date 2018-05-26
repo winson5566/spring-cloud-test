@@ -9,10 +9,10 @@ import tech.winson.eureka.service.HelloFeignService;
 import tech.winson.eureka.service.HelloRibbonService;
 
 /**
- * 消费者测试接口
+ * 消费者HTTP测试接口
  */
 @Controller
-public class HelloController {
+public class HttpController {
 
     @Autowired
     HelloFeignService helloFeignService;

@@ -1,8 +1,6 @@
-group 'tech.winson'
-version '1.0-SNAPSHOT'
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
+        springBootVersion = '2.0.0.RELEASE'
     }
     repositories {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
@@ -20,16 +18,17 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-    baseName = 'provider'
-    version = '1.2'
+    baseName = 'config'
+    version = '1.0'
 }
 
 bootJar {
-    baseName = 'provider'
-    version = '1.2'
+    baseName = 'config'
+    version = '1.0'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
 
 dependencyManagement {
     imports {
@@ -45,11 +44,11 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix', version: '1.4.4.RELEASE'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-actuator'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server'
     compile 'javax.xml.bind:jaxb-api:2.2.7'
     compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.7'
     compile group: 'javax.activation', name: 'activation', version: '1.1.1'

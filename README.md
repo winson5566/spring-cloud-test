@@ -31,8 +31,9 @@ application.yml文件中的：logging.file
 -Dspring.profiles.active=dev2
 
 #### 双服务提供者  
--Dserver.port=8811
--Dserver.port=8811
+-Dserver.port=8811  
+-Dserver.port=8812  
+-Dserver.port=8813 -Dspring.application.name=provider-spare //用来测试zuul路由  
 
 #### 消费者  
 -Dspring.profiles.active=dev0
@@ -41,4 +42,4 @@ application.yml文件中的：logging.file
 
 # 更新日志
 2018.05.25 增加Eureka+Feign+Ribbon整合  
-2018.05.26 增加断路器Hystrix
+2018.05.26 增加断路器Hystrix+zuul路由
