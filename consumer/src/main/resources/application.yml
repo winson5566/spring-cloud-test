@@ -1,19 +1,19 @@
 #默认使用dev配置
 #java -jar xxx.jar --spring.profiles.active=prod
-server:
-  port: 8820
-spring:
-  profiles:
-    active: dev
-  application:
-    name: consumer
----
-# 测试环境配置
-spring:
-  profiles: test
-
----
-# 正式环境配置
-spring:
-  profiles: prod
+#server:
+#  port: 8820
+#spring:
+#  profiles:
+#    active: dev
+#  application:
+#    name: consumer
+#---
+## 测试环境配置
+#spring:
+#  profiles: test
+#
+#---
+## 正式环境配置
+#spring:
+#  profiles: prod
 
