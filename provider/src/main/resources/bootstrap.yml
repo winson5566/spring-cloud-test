@@ -1,15 +1,15 @@
 server:
-  port: 8820
+  port: 8810
 spring:
   application:
-    name: consumer
+    name: provider
   cloud:
     config:
       label: master
       profile: dev
       discovery:
         enabled: true
-        serviceId: config-server
+        serviceId: provider
 eureka:
   client:
     serviceUrl:
