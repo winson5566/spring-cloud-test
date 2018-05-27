@@ -26,7 +26,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrixDashboard
 @EnableCircuitBreaker    //ribbon需要加入这个注解
 @EnableZuulProxy
-@RefreshScope
 public class ConsumerStart extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerStart.class, args);
