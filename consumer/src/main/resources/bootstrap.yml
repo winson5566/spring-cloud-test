@@ -7,3 +7,5 @@ spring:
       uri: http://localhost:8830/
       label: master
       profile: dev
+server:
+  port: 8820
