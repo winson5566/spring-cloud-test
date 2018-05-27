@@ -3,7 +3,6 @@
 spring:
   application:
     name: consumer
-<<<<<<< HEAD
 server:
   port: 8820
 logging:
@@ -41,41 +40,6 @@ eureka:
 logging:
   file: C:\Users\awins\Projects\logs\${spring.application.name}.log
 
-
----
-# 开发环境配置（双服务中心模式）
-spring:
-  profiles: dev1
-#服务注册中心端口号
-server:
-  port: 8821
-#Eureka注册中心设置
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-#日志地址
-logging:
-  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
-
----
-# 开发环境配置（双服务中心模式）
-spring:
-  profiles: dev2
-#服务注册中心端口号
-server:
-  port: 8822
-#Eureka注册中心设置
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-#日志地址
-logging:
-  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
-
-=======
->>>>>>> 8c74c52a72f1a51e04443f930e127c2f14de0094
 ---
 # 测试环境配置
 spring:
