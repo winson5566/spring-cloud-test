@@ -13,14 +13,12 @@ spring:
     ## 开启消息跟踪
     bus:
       trace:
-        enabled: false
+        enabled: true
 eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
 management:
-  security:
-    enabled:
   endpoints:
     web:
       exposure:
