@@ -1,4 +1,4 @@
-foo: foo v1.9
+foo: foo v2.0
 logging:
   file: C:\Users\awins\Projects\logs\${spring.application.name}.log
   level:
@@ -25,7 +25,7 @@ eureka:
       defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
 spring:
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     port: 5672
-    username: admin
-    password: admin
+    username: springcloud
+    password: springcloud
