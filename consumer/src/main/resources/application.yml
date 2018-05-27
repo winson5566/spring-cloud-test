@@ -5,6 +5,11 @@ spring:
     active: dev0
   application:
     name: consumer
+  cloud:
+    config:
+      uri: http://localhost:8830/
+      label: master
+      profile: dev
 server:
   port: 8820
 logging:

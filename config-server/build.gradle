@@ -18,12 +18,12 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-    baseName = 'eureka-service'
+    baseName = 'config-service'
     version = '1.0'
 }
 
 bootJar {
-    baseName = 'eureka-service'
+    baseName = 'config-service'
     version = '1.0'
 }
 sourceCompatibility = 1.8
@@ -44,14 +44,9 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    compile group: 'org.springframework.boot', name: 'spring-boot-actuator'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server'
-    compile 'javax.xml.bind:jaxb-api:2.2.7'
-    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.7'
-    compile group: 'javax.activation', name: 'activation', version: '1.1.1'
 
 }
 

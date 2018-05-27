@@ -2,6 +2,7 @@ package tech.winson.eureka.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,6 +35,14 @@ public class HttpController {
         StringBuffer stringBuffer=new StringBuffer();
         stringBuffer.append("[Ribbon]").append(helloRibbonService.hello(name));
         return stringBuffer.toString();
+    }
+
+    @Value("${foo}")
+    String foo;
+    @RequestMapping("/helloConfig")
+    @ResponseBody
+    public String helloConfig() {
+        return foo;
     }
 
 }
