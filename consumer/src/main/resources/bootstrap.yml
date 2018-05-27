@@ -1,0 +1,7 @@
+#用于配置springcloud confing server
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8830/
+      label: master
+      profile: dev
