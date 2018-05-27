@@ -23,3 +23,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
