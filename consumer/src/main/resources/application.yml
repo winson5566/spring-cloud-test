@@ -7,25 +7,25 @@ spring:
     name: consumer
 server:
   port: 8820
-#logging:
-#  level:
-#    com:
-#      netflix:
-#        eureka: OFF
-#        discovery: OFF
-##熔断器
-#feign:
-#  hystrix:
-#    enabled: true
-##zuul配置
-#zuul:
-#  routes:
-#    provider:
-#      path: /provider/**
-#      serviceId: provider
-#    provider-spare:
-#      path: /provider-spare/**
-#      serviceId: provider-spare
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+#熔断器
+feign:
+  hystrix:
+    enabled: true
+#zuul配置
+zuul:
+  routes:
+    provider:
+      path: /provider/**
+      serviceId: provider
+    provider-spare:
+      path: /provider-spare/**
+      serviceId: provider-spare
 ---
 # 开发环境配置(单服务中心模式)
 spring:
@@ -44,36 +44,36 @@ logging:
 
 
 ---
-## 开发环境配置（双服务中心模式）
-#spring:
-#  profiles: dev1
-##服务注册中心端口号
-#server:
-#  port: 8821
-##Eureka注册中心设置
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-##日志地址
-#logging:
-#  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
+# 开发环境配置（双服务中心模式）
+spring:
+  profiles: dev1
+#服务注册中心端口号
+server:
+  port: 8821
+#Eureka注册中心设置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
+#日志地址
+logging:
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
 
 ---
-## 开发环境配置（双服务中心模式）
-#spring:
-#  profiles: dev2
-##服务注册中心端口号
-#server:
-#  port: 8822
-##Eureka注册中心设置
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-##日志地址
-#logging:
-#  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
+# 开发环境配置（双服务中心模式）
+spring:
+  profiles: dev2
+#服务注册中心端口号
+server:
+  port: 8822
+#Eureka注册中心设置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
+#日志地址
+logging:
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
 
 ---
 # 测试环境配置
