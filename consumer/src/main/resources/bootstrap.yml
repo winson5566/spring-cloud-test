@@ -10,6 +10,9 @@ spring:
       discovery:
         enabled: true
         serviceId: config-server
+    bus:
+      trace:
+        enabled: false
 eureka:
   client:
     serviceUrl:

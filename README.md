@@ -10,6 +10,9 @@ consumer 为消费者 （Feign+Ribbon+Hystrix）
 URL: http://localhost:8820/hystrix  
 Monitor Stream: http://localhost:8820/hystrix.stream  
 
+Bus-refresh
+http://localhost:8820/actuator/bus-refresh 
+
 # 项目启动
 ## 1.修改每个项目的日志输出地址
 application.yml文件中的：logging.file
