@@ -1,10 +1,9 @@
 #默认使用dev配置
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
-  profiles:
-    active: dev0
   application:
     name: consumer
+<<<<<<< HEAD
 server:
   port: 8820
 logging:
@@ -75,6 +74,8 @@ eureka:
 logging:
   file: C:\Users\awins\Projects\logs\${spring.application.name}.log
 
+=======
+>>>>>>> 8c74c52a72f1a51e04443f930e127c2f14de0094
 ---
 # 测试环境配置
 spring:

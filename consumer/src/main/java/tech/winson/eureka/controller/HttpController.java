@@ -37,12 +37,12 @@ public class HttpController {
         return stringBuffer.toString();
     }
 
-    @Value("${foo}")
-    String foo;
-    @RequestMapping("/helloConfig")
-    @ResponseBody
-    public String helloConfig() {
-        return foo;
-    }
+//    @Value("${foo}")
+//    String foo;
+//    @RequestMapping("/helloConfig")
+//    @ResponseBody
+//    public String helloConfig() {
+//        return foo;
+//    }
 
 }

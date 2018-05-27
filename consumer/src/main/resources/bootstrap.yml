@@ -1,5 +1,7 @@
 #用于配置springcloud confing server
 spring:
+  application:
+    name: consumer
   cloud:
     config:
       uri: http://localhost:8830/
