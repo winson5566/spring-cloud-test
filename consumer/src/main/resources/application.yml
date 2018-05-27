@@ -2,11 +2,9 @@
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
   profiles:
-    active: dev0
+    active: dev
   application:
     name: consumer
-server:
-  port: 8820
 logging:
   level:
     com:
@@ -29,7 +27,7 @@ zuul:
 ---
 # 开发环境配置(单服务中心模式)
 spring:
-  profiles: dev0
+  profiles: dev
 #服务注册中心端口号
 server:
   port: 8820
