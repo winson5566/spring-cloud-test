@@ -1,11 +1,10 @@
 #默认使用dev配置
 #java -jar xxx.jar --spring.profiles.active=prod
 spring:
+  profiles:
+    active: dev
   application:
     name: config-server
-server:
-  port: 8830
-spring:
   cloud:
     config:
       server:
@@ -13,12 +12,25 @@ spring:
           uri: https://github.com/winson5566/spring-cloud-test
           searchPaths: config-respo
       label: master
+logging:
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+server:
+  port: 8830
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
 ---
 # 测试环境配置
 spring:
   profiles: test
+
 ---
 # 正式环境配置
 spring:
   profiles: prod
-

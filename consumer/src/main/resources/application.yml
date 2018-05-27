@@ -1,11 +1,14 @@
 #默认使用dev配置
 #java -jar xxx.jar --spring.profiles.active=prod
+server:
+  port: 8820
 spring:
   profiles:
     active: dev
   application:
     name: consumer
 logging:
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
   level:
     com:
       netflix:
@@ -24,22 +27,10 @@ zuul:
     provider-spare:
       path: /provider-spare/**
       serviceId: provider-spare
----
-# 开发环境配置(单服务中心模式)
-spring:
-  profiles: dev
-#服务注册中心端口号
-server:
-  port: 8820
-#Eureka注册中心设置
 eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-#日志地址
-logging:
-  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
-
 ---
 # 测试环境配置
 spring:

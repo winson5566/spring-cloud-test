@@ -4,6 +4,12 @@ spring:
     name: consumer
   cloud:
     config:
-      uri: http://localhost:8830/
       label: master
       profile: dev
+      discovery:
+        enabled: true
+        serviceId: config-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
