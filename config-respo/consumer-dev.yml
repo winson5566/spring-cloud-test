@@ -1,4 +1,4 @@
-foo: foo v1.1
+foo: foo v1.2
 logging:
   file: C:\Users\awins\Projects\logs\${spring.application.name}.log
   level:

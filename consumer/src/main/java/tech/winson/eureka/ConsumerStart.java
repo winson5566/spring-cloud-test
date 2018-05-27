@@ -54,6 +54,5 @@ public class ConsumerStart extends SpringBootServletInitializer {
         registrationBean.addUrlMappings("/hystrix.stream");
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
-
     }
 }
