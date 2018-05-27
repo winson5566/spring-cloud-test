@@ -1,0 +1,29 @@
+#服务注册中心端口号
+server:
+  port: 8820
+#Eureka注册中心设置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
+#日志地址
+logging:
+  file: C:\Users\awins\Projects\logs\${spring.application.name}.log
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+#熔断器
+feign:
+  hystrix:
+    enabled: true
+#zuul配置
+zuul:
+  routes:
+    provider:
+      path: /provider/**
+      serviceId: provider
+    provider-spare:
+      path: /provider-spare/**
+      serviceId: provider-spare
