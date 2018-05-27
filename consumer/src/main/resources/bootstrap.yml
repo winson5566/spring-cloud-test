@@ -18,8 +18,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8801/eureka/,http://127.0.0.1:8802/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        include: ["health","info","bus-refresh"]
