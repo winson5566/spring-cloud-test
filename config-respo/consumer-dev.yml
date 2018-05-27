@@ -29,3 +29,9 @@ spring:
     port: 5672
     username: admin
     password: admin
+#2.0后需要开启的配置
+management:
+  endpoints:
+    web: 
+      exposure:
+        include: ["health","info","bus-refresh"]

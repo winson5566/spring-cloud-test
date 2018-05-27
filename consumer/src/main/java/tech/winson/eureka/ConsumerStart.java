@@ -9,6 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -25,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableHystrixDashboard
 @EnableCircuitBreaker    //ribbon需要加入这个注解
 @EnableZuulProxy
+@RefreshScope
 public class ConsumerStart extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ConsumerStart.class, args);
